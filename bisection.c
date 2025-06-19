@@ -37,3 +37,47 @@ int main() {
     printf("Root = %f\n", c);
     return 0;
 }
+
+//algos
+
+Start
+
+Define function f(x) = x^3 - 9x + 1
+
+Set step = 0.1
+
+Repeat
+    Input start, end   // Interval from user
+
+    Set flag = 0
+
+    For x from start to end with step size 0.1 do
+        a = x
+        b = x + step
+        If f(a) * f(b) < 0 then
+            Set flag = 1
+            Break the loop
+        End If
+    End For
+
+    If flag == 0 then
+        Display "No root exists in this interval."
+    End If
+
+Until flag == 1
+
+// Bisection Iteration
+Repeat
+    c = (a + b) / 2
+
+    If f(a) * f(c) < 0 then
+        b = c
+    Else
+        a = c
+    End If
+
+Until |f(c)| < 0.0001   // Tolerance condition
+
+Display "Root = ", c
+
+End
