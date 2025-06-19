@@ -30,3 +30,39 @@ int main()
     printf("Root = %f",x1);
     return 0;
 }
+
+
+
+
+//Algos
+
+Start
+
+Define f(x) = x^3 - 8x - 4
+Define f'(x) = 3x^2 - 8
+
+Repeat
+    Prompt user to enter interval [a, b]
+    Read a, b
+
+    If f(a) * f(b) < 0
+        Valid interval → Exit loop
+    Else
+        Display "Invalid interval!"
+End Repeat
+
+Set initial guess x0 = (a + b) / 2
+
+Repeat
+    Store previous value: c = x0
+
+    Compute next approximation:
+        x1 = x0 - f(x0) / f'(x0)
+
+    Update x0 = x1
+
+Until |x1 - c| < 0.00001
+
+Display "Root = ", x1
+
+End
