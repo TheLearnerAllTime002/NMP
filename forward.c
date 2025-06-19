@@ -61,3 +61,66 @@ int main() {
 
     return 0;
 }
+
+// algos
+
+Start
+
+Function fact(n)
+    Set f = 1
+    While n > 0 do
+        f = f * n
+        n = n - 1
+    End While
+    Return f
+End Function
+
+Input n      // Number of data points
+
+Declare x[n], y[n][n]
+
+// Input x values
+For i from 0 to n - 1 do
+    Input x[i]
+End For
+
+// Input y values
+For i from 0 to n - 1 do
+    Input y[i][0]
+End For
+
+// Calculate step size
+Set h = x[1] - x[0]
+
+// Construct forward difference table
+For i from 1 to n - 1 do
+    For j from 0 to n - i - 1 do
+        y[j][i] = y[j + 1][i - 1] - y[j][i - 1]
+    End For
+End For
+
+// Display the forward difference table
+For j from 0 to n - 1 do
+    For i from 0 to n - j - 1 do
+        Print y[j][i]
+    End For
+    Print newline
+End For
+
+// Input value to interpolate
+Input p
+
+// Compute u
+Set u = (p - x[0]) / h
+Set s = y[0][0]
+Set t = 1
+
+// Apply Newton Forward formula
+For i from 1 to n - 1 do
+    t = t * (u - (i - 1))
+    s = s + (t * y[0][i]) / fact(i)
+End For
+
+Print "The interpolated value at x = ", p, " is: ", s
+
+End
