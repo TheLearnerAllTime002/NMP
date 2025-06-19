@@ -28,3 +28,28 @@ int main() {
 
     return 0;
 }
+
+// ago 
+
+Start
+
+Define function f(x, y)
+    Return 3 * x^2 + 1
+End Function
+
+Input x0    // Initial x value
+Input y0    // Initial y value
+Input h     // Step size
+Input x     // Final x value at which to compute y
+
+Compute n = (x - x0) / h
+Set y = y0
+
+For i from 0 to n - 1 do
+    y = y + h * f(x0, y)
+    x0 = x0 + h
+End For
+
+Display "The approximate value of y is: ", y
+
+End
