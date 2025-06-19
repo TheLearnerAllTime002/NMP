@@ -33,3 +33,36 @@ int main() {
     printf("The approximate value of y at x = %f is %f\n", x, y);
     return 0;
 }
+
+
+// algo 
+
+
+Start
+
+Define function f(x, y)
+    Return x*x + y*y
+End Function
+
+Input x0      // Initial x value
+Input y0      // Initial y value
+Input h       // Step size
+Input x       // Value of x at which to find y
+
+Set n = (x - x0) / h
+Set y = y0
+
+For i from 0 to n - 1 do
+    k1 = h * f(x0, y)
+    k2 = h * f(x0 + h/2, y + k1/2)
+    k3 = h * f(x0 + h/2, y + k2/2)
+    k4 = h * f(x0 + h, y + k3)
+
+    y = y + (k1 + 2*k2 + 2*k3 + k4) / 6
+    x0 = x0 + h
+End For
+
+Print "The approximate value of y at x =", x, " is ", y
+
+End
+
