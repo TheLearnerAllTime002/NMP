@@ -44,3 +44,42 @@ int main()
     printf("The value of the intergral is : %f\n", t);
     return 0;
 }
+
+
+//Algos
+
+Start
+
+Input a   // Lower limit
+Input b   // Upper limit
+
+Repeat
+    Input n   // Number of intervals
+    If n is not even
+        Display "Number of intervals must be even. Try again!"
+    Else
+        Exit loop
+Until n is even
+
+Set h = (b - a) / n
+Set sum = 0
+
+For i from 1 to n - 1 do
+    p = a + i * h
+    If i is even then
+        sum = sum + 2 * f(p)
+    Else
+        sum = sum + 4 * f(p)
+End For
+
+t = (h / 3) * (f(a) + f(b) + sum)
+
+Display "The value of the integral is: ", t
+
+End
+
+// Function Definition:
+Function f(x)
+    Return 1 / sqrt(1 + x^3)
+End Function
+
