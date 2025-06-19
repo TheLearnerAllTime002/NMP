@@ -37,3 +37,30 @@ int main() {
 
     return 0;
 }
+
+
+// algo
+
+Algorithm: Lagrange Interpolation
+Step 1: Start
+
+Step 2: Input the number of data points n
+
+Step 3: Input the array of x values
+
+Step 4: Input the array of y values corresponding to each x
+
+Step 5: Input the value p at which interpolation is to be calculated
+
+Step 6: Initialize result = 0
+
+Step 7: For each i from 0 to n-1 do
+  a. Set t = y[i]
+  b. For each j from 0 to n-1 do
+    If j != i then
+      Update t = t * (p - x[j]) / (x[i] - x[j])
+  c. Add t to result
+
+Step 8: Output the interpolated value result
+
+Step 9: End
